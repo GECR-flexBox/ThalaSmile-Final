@@ -1,0 +1,66 @@
+[
+  {
+    "author": "John",
+    "message": "We appreciate you developing this platform, Thalasmile. It has been a fantastic platform for knowledge and support for me.",
+    "dp": "https://example.com/avatar1.jpg",
+    "date": 5,
+    "month": "January",
+    "year": 2023
+  },
+  {
+    "author": "Sarah",
+    "message": "Just wanted to express how much I value the encouraging and uplifting posts on Thalasmile. I find that it truly keeps me inspired and hopeful.",
+    "dp": "https://example.com/avatar2.jpg",
+    "date": 12,
+    "month": "February",
+    "year": 2023
+  },
+  {
+    "author": "David",
+    "message": "Thalasmile's tools and information have been invaluable in helping me manage my illness. I'm grateful.",
+    "dp": "https://example.com/avatar3.jpg",
+    "date": 22,
+    "month": "March",
+    "year": 2023
+  },
+  {
+    "author": "Hannah",
+    "message": "I adore being able to communicate with people who have lived with thalassemia and can relate. A fantastic community has been developed by Thalasmile.",
+    "dp": "https://example.com/avatar4.jpg",
+    "date": 9,
+    "month": "April",
+    "year": 2023
+  },
+  {
+    "author": "Mark",
+    "message": "Thalasmile has taught me a lot about thalassemia and how to treat it. It's remarkable how much knowledge can alter a situation.",
+    "dp": "https://example.com/avatar5.jpg",
+    "date": 18,
+    "month": "May",
+    "year": 2023
+  },
+  {
+    "author": "Lucy",
+    "message": "Thank you to all the volunteers who help make Thalasmile possible. Your dedication and hard work are truly appreciated.",
+    "dp": "https://example.com/avatar6.jpg",
+    "date": 3,
+    "month": "June",
+    "year": 2023
+  },
+  {
+    "author": "Adam",
+    "message": "Thalasmile has helped me feel less alone and isolated in my condition. It's comforting to know that there are others who understand.",
+    "dp": "https://example.com/avatar7.jpg",
+    "date": 11,
+    "month": "July",
+    "year": 2023
+  },
+  {
+    "author": "Rachel",
+    "message": "I appreciate the efforts Thalasmile has made to promote positivity and resilience in the thalassemia community. Keep up the great work!",
+    "dp": "https://example.com/avatar8.jpg",
+    "date": 29,
+    "month": "August",
+    "year": 2023
+  }
+]
