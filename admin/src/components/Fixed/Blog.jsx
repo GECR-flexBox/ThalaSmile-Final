@@ -70,7 +70,12 @@ const Blog = () => {
             />
           </div>
           <div className="forbtn">
-            <div className="btn">Add Blog</div>
+            <div className="btn" onClick={() => {
+              console.log({authorName});
+              console.log({blogTitle});
+              console.log({blogPoster});
+              console.log({blogDesc});
+            }}>Add Blog</div>
           </div>
         </form>
       </div>

@@ -67,7 +67,12 @@ const Camp = () => {
             />
           </div>
           <div className="forbtn">
-            <div className="btn">Add Camp</div>
+            <div className="btn" onClick={() => {
+              console.log({date});
+              console.log({eventPoster});
+              console.log({location});
+              console.log({eventDesc});
+            }}>Add Camp</div>
           </div>
         </form>
       </div>
