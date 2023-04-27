@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom'
 import "../../../Css/Contact.css";
 import "../../../Css/EventForm.css";
 import FestivalIcon from "@mui/icons-material/Festival";
@@ -8,13 +9,42 @@ import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
 
 const Contact = () => {
-
+  const backend="http://localhost:3001";
   const [eventName, setEventName] = useState("")
   const [date, setDate] = useState("")
   const [evenPoster, setEvenPoster] = useState("")
   const [location, setLocation] = useState("")
   const [eventDesc, setEventDesc] = useState("")
+  const nav = useNavigate();
 
+  const handlesubmit = async (e)=>{
+    e.preventDefault();
+    if(eventName=="" || date=="" || evenPoster==""|| location ==""|| eventDesc==""){
+      alert("invalid creadentials")
+      return;
+    }
+    const res= await fetch(`${backend}/createEvent`,{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({
+        admin:"123456789",
+        name:eventName,
+        date:date,
+        des: eventDesc,
+        dp: evenPoster,
+        address: location,
+      })
+    })
+    const dt = await res.json();
+    if(dt.status=="ok"){
+      alert("event added succesfully");
+      nav("/");
+    }else{
+      alert("event added succesfully");
+    }
+  }
   return (
     <div>
       <header className="event-sec">
@@ -25,7 +55,7 @@ const Contact = () => {
         </div>
       </header>
       <div className="message">
-        <form action="" className="contactus">
+        <form onSubmit={handlesubmit} className="contactus">
           <div className="input">
             <label className="icon">
               <FestivalOutlinedIcon />
@@ -47,8 +77,7 @@ const Contact = () => {
               <FestivalIcon />
             </label>
             <div className="nn2">
-              <div className="tx">Upload Event Poster </div>
-              <input type="file" name="" id="" onChange={(e) => {
+              <input type="url" value={evenPoster} placeholder="Link Event Poster" onChange={(e) => {
                 setEvenPoster(e.target.value)
               }}/>
             </div>
@@ -66,8 +95,6 @@ const Contact = () => {
               <DescriptionRoundedIcon />
             </label>
             <textarea
-              name=""
-              id=""
               cols="30"
               rows="10"
               className="msg"
@@ -78,13 +105,7 @@ const Contact = () => {
             />
           </div>
           <div className="forbtn">
-            <div className="btn" onClick={() => {
-              console.log({eventName});
-              console.log({date});
-              console.log({evenPoster});
-              console.log({location});
-              console.log({eventDesc});
-            }}>Add Event</div>
+            <button className="btn" type="submit">Add Event</button>
           </div>
         </form>
       </div>

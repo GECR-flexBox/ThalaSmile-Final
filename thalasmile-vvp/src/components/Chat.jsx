@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState,useRef } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import { MyContext } from "../App";
 import './chat.css'
@@ -18,6 +18,8 @@ function Chat() {
   const [messageList, setMessageList] = useState([]);
   const [isprocess,setIsprocess]=useState(false);
   const [loading,setLoading]=useState(false);
+  const socketRef = useRef();
+
 
   const sendMessage = async (e) => {
     e.preventDefault()
@@ -68,11 +70,7 @@ function Chat() {
     }
     setLoading(false);
   }
-  useEffect(() => {
-    socket.on("receive_message", (data) => {
-      setMessageList((list) => [data,...list]);
-    });
-  },[socket]);
+  
   
   const deletemsg =async (msg)=>{
     if(msg._id){
@@ -107,7 +105,22 @@ function Chat() {
       }
     }
   }
+  useEffect(() => {
+      socket.on("receive_message", (data) => {
+        setMessageList((list) => [data,...list]);
+      });
+  },[socket]);
 
+  // useEffect(() => {
+  //   socketRef.current = socket;
+  // }, [socket]);
+  // useEffect(()=>{
+  //   const socket = socketRef.current;
+  //   socket.on("receive_message", (data) => {
+  //     setMessageList((list) => [data,...list]);
+  //   });
+  // })
+  
   useEffect(()=>{
     getchat();
     // getlegth();

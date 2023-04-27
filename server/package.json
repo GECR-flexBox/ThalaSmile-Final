@@ -4,8 +4,7 @@
   "description": "server for thelesemine",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "virengiri",
   "license": "ISC",
@@ -14,7 +13,6 @@
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "mongoose": "^7.0.4",
-    "nodemon": "^2.0.22",
     "socket.io": "^4.6.1"
   }
 }
