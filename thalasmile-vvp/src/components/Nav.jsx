@@ -28,7 +28,7 @@ const Nav = () => {
         {islogin && <Link to="/comunity">Community</Link>}
         <a style={{display:`${location.pathname=="/"?"unset":"none"}`}} href="#BlgGrid">Blogs</a>
         <a style={{display:`${location.pathname=="/"?"unset":"none"}`}} href="#rev">Testimonials</a>
-        {islogin && <a href="/">Resource</a>}
+        {islogin && <a href="/resource">Resource</a>}
         {!islogin && <Link to="/signin">SingIn</Link>}
         {islogin && <button className="btn" onClick={logoutfun} style={{scale:".7",cursor:"pointer"}}>LogOut</button>}
       </div>

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../../styles/Home.css";
-import Nav from "../../components/Nav";
 import "swiper/css";
 
 import { Autoplay, Pagination, Navigation } from "swiper";
@@ -81,9 +80,6 @@ const Home = () => {
   return (
     <section>
       <div id="hero">
-        {/* <header>
-          <Nav />
-        </header> */}
         <main>
           <div id="s-title">The perfect balance between </div>
           <div id="m-title">Health & Mind </div>
