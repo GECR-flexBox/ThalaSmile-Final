@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../Css/Contact.css";
 import "../../Css/EventForm.css";
 import FestivalIcon from "@mui/icons-material/Festival";
@@ -7,6 +7,11 @@ import AddLocationAltRoundedIcon from "@mui/icons-material/AddLocationAltRounded
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
 const Camp = () => {
+  const [date, setDate] = useState("")
+  const [eventPoster, setEventPoster] = useState("")
+  const [location, setLocation] = useState("")
+  const [eventDesc, setEventDesc] = useState("")
+
   return (
     <div>
       <header className="event-sec">
@@ -22,7 +27,9 @@ const Camp = () => {
             <label className="icon">
               <DateRangeRoundedIcon />
             </label>
-            <input type="date" className="name" placeholder="" />
+            <input type="date" className="name" placeholder="" onChange={(e) => {
+                setDate(e.target.value)
+              }} />
           </div>
           <div className="input">
             <label className="icon">
@@ -30,14 +37,18 @@ const Camp = () => {
             </label>
             <div className="nn2">
               <div className="tx">Upload Event Poster </div>
-              <input type="file" name="" id="" />
+              <input type="file" name="" id="" onChange={(e) => {
+                setEventPoster(e.target.value)
+              }}/>
             </div>
           </div>
           <div className="input">
             <label className="icon">
               <AddLocationAltRoundedIcon />
             </label>
-            <input type="text" className="name" placeholder="Event Location" />
+            <input type="text" className="name" placeholder="Event Location" onChange={(e) => {
+                setEventPoster(e.target.value)
+              }} />
           </div>
           <div className="inmsg">
             <label className="icon msicon">
@@ -50,6 +61,9 @@ const Camp = () => {
               rows="10"
               className="msg"
               placeholder="Event Description"
+              onChange={(e) => {
+                setEventDesc(e.target.value)
+              }}
             />
           </div>
           <div className="forbtn">

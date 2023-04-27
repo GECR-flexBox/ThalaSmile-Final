@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../Css/Contact.css";
 import "../../Css/EventForm.css";
 import FestivalIcon from "@mui/icons-material/Festival";
@@ -7,6 +7,12 @@ import AddLocationAltRoundedIcon from "@mui/icons-material/AddLocationAltRounded
 import DescriptionRoundedIcon from "@mui/icons-material/DescriptionRounded";
 import DateRangeRoundedIcon from "@mui/icons-material/DateRangeRounded";
 const Blog = () => {
+
+  const [authorName, setAuthorName] = useState("")
+  const [blogTitle, setBlogTitle] = useState("")
+  const [blogPoster, setbBlogPoster] = useState("")
+  const [blogDesc, setBlogDesc] = useState("")
+
   return (
     <div>
       <header className="event-sec">
@@ -22,13 +28,17 @@ const Blog = () => {
             <label className="icon">
               <FestivalOutlinedIcon />
             </label>
-            <input type="text" className="name" placeholder="Author Name" />
+            <input type="text" className="name" placeholder="Author Name" onChange={(e) => {
+              setAuthorName(e.target.value)
+            }} />
           </div>
           <div className="input">
             <label className="icon">
               <FestivalOutlinedIcon />
             </label>
-            <input type="text" className="title" placeholder="Blog Title" />
+            <input type="text" className="title" placeholder="Blog Title" onChange={(e) => {
+              setBlogTitle(e.target.value)
+            }}/>
           </div>
 
           <div className="input">
@@ -37,7 +47,9 @@ const Blog = () => {
             </label>
             <div className="nn2">
               <div className="tx">Upload Blog Poster </div>
-              <input type="file" name="" id="" />
+              <input type="file" name="" id="" onChange={(e) => {
+              setbBlogPoster(e.target.value)
+            }}/>
             </div>
           </div>
 
@@ -52,6 +64,9 @@ const Blog = () => {
               rows="10"
               className="msg"
               placeholder="Blog Description"
+              onChange={(e) => {
+                setBlogDesc(e.target.value)
+              }}
             />
           </div>
           <div className="forbtn">
