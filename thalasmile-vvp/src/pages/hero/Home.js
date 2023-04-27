@@ -59,27 +59,30 @@ const Home = () => {
   const {backend}=useContext(MyContext);
   const [blogs,setBlogs]=useState([]);
   const [showmore,setShowmore]=useState(true);
-  const getblog =async ()=>{
-    const res = await fetch(`${backend}/getblog/0`,{method:"GET"});
+  const getblog = async () => {
+    const res = await fetch(`${backend}/getblog/0`, { method: "GET" });
     const blg = await res.json();
-    if(blg.status=="ok"){
+    if (blg.status == "ok") {
       setBlogs(blg.blogs);
     }
-  }
-  const fetchMoreData=async ()=>{
-    const res = await fetch(`${backend}/getblog/${blogs.length}`,{method:'GET'});
+  };
+  const fetchMoreData = async () => {
+    const res = await fetch(`${backend}/getblog/${blogs.length}`, {
+      method: "GET",
+    });
     const blg = await res.json();
-    if(blg.status=="ok"){
-      setBlogs([...blogs,...blg.blogs]);
-    }else{
+    if (blg.status == "ok") {
+      setBlogs([...blogs, ...blg.blogs]);
+    } else {
       setShowmore(false);
     }
-  }
-  useEffect(()=>{
+  };
+  useEffect(() => {
     getblog();
-  },[])
+  }, []);
   return (
     <section>
+      
       <div id="hero">
         {/* <header>
           <Nav />
@@ -87,7 +90,9 @@ const Home = () => {
         <main>
           <div id="s-title">The perfect balance between </div>
           <div id="m-title">Health & Mind </div>
-          <Link to="/signin" className="btn">Join Now</Link>
+          <a className="btn" href="#BlgGrid">
+            Know More
+          </a>
         </main>
       </div>
       <div id="intro">
@@ -186,19 +191,19 @@ const Home = () => {
           navigation={true}
           modules={[Autoplay, Pagination, Navigation]}
         >
-          {testdt.map((tm)=>{
-            return <SwiperSlide>
-            <div id="feedRev">
-              <div id="dp">
-                <img src={tm.dp} alt="" />
-              </div>
-              <h1>
-                “{tm.message}”
-              </h1>
-              <div id="blue">{tm.author}</div>
-              <small>Fake Nurse</small>
-            </div>
-          </SwiperSlide>
+          {testdt.map((tm) => {
+            return (
+              <SwiperSlide>
+                <div id="feedRev">
+                  <div id="dp">
+                    <img src={tm.dp} alt="" />
+                  </div>
+                  <h1>“{tm.message}”</h1>
+                  <div id="blue">{tm.author}</div>
+                  <small>Fake Nurse</small>
+                </div>
+              </SwiperSlide>
+            );
           })}
         </Swiper>
       </div>
@@ -246,51 +251,65 @@ const Home = () => {
           </div>
         </div>
         <div id="BlgGrid">
-          {blogs.length==0 && <p>Loading...</p>}
-          {blogs.length!=0 && <Swiper
-            slidesPerView={3}
-            spaceBetween={30}
-            loop={false}
-            className="mySwiper"
-          >
-          
-            {blogs.map((bl)=>{
-            const dt = new Date(bl.created_at);
-            let day = dt.getDate();
-            let month = monthsname[dt.getMonth()];
-            let year = dt.getFullYear();
-            
-              
-            return <SwiperSlide>
-            <div id="Blg">
-              <div id="B-top">
-                <img src={bl.dp} alt="" />
-                <div id="date">
-                  <div id="day">{day}</div>
-                  <div id="my">{month}, {year}</div>
+          {blogs.length == 0 && <p>Loading...</p>}
+          {blogs.length != 0 && (
+            <div id="blogCont">
+              {blogs.map((bl) => {
+                const dt = new Date(bl.created_at);
+                let day = dt.getDate();
+                let month = monthsname[dt.getMonth()];
+                let year = dt.getFullYear();
+
+                return (
+                  <div id="Blg">
+                    <div id="B-top">
+                      <img src={bl.dp} alt="" />
+                      <div id="date">
+                        <div id="day">{day}</div>
+                        <div id="my">
+                          {month}, {year}
+                        </div>
+                      </div>
+                    </div>
+                    <div id="B-data">
+                      <div id="blue">{bl.author} - ADMIN</div>
+                    </div>
+                    <div
+                      id="blogdesc"
+                      style={{
+                        maxHeight: "150px",
+                        overflowY: "scroll",
+                        margin: "10px",
+                      }}
+                    >
+                      <div id="B-title">{bl.title}</div>
+                      <div style={{ padding: "5px", marginTop: "16px" }}>
+                        {" "}
+                        <p style={{ textAlign: "justify" }}>{bl.desc}</p>{" "}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+              <div
+                id="Blg"
+                style={{
+                  display: `${showmore ? "flex" : "none"}`,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <div className="btn" onClick={fetchMoreData}>
+                  Load More
                 </div>
               </div>
-              <div id="B-data">
-                <div id="blue">{bl.author} - ADMIN</div>
-              </div>
-              <div id="blogdesc" style={{maxHeight:'150px',overflowY:'scroll',margin:"10px"}}>
-                <div id="B-title">{bl.title}</div>
-                <div style={{padding:"5px",marginTop:"16px"}}> <p style={{textAlign:'justify'}}>{bl.desc}</p> </div>
-              </div>
             </div>
-          </SwiperSlide>
-            })}
-            <SwiperSlide>
-            <div id="Blg" style={{display:`${showmore?"flex":"none"}`,justifyContent:'center',alignItems:'center'}}>
-              <button className="btn" onClick={fetchMoreData}>Load More</button>
-            </div>
-          </SwiperSlide>
-          </Swiper>}
+          )}
         </div>
       </div>
       <footer>
         made &nbsp;&nbsp;&nbsp; with &nbsp;&nbsp; 💖&nbsp;&nbsp; by
-        &nbsp;&nbsp;&nbsp; KPD
+        &nbsp;&nbsp;&nbsp; ThalaSmile
       </footer>
     </section>
   );

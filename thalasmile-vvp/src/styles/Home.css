@@ -60,6 +60,7 @@ font: var(--font8);
 color: #fff;
 width: fit-content;
 padding: 12.5px 35px;
+cursor: pointer;
 background-color: var(--blue);
 }
 /*=============intro section=================*/
@@ -334,6 +335,21 @@ transform: scale(1.15);
     align-items: flex-start;
     justify-content: space-between;
 }
+#Blg #B-top img{
+    width: 360px;
+}
+#blogCont{
+    /* background-color: lime; */
+    height: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 35px 60px;
+    flex-wrap: wrap;
+}
+#blogCont > *{
+    width: 30%;
+}
 #bgSection #bghR{
     color: #8b8b8b;
     font-family: var(--font6);
@@ -350,16 +366,30 @@ font-weight: 500;
     flex-direction: column;
     position: relative;
     align-items: flex-start;
+    /* background: gold; */
 }
 #BlgGrid #Blg #date{
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 70px;
+    right: 15px;
     background-color: var(--blue3);
     display: flex;
     flex-direction: column;
     height: auto;
     width: 100px;
+}
+#blogdesc::-webkit-scrollbar {
+  width: 0px;
+}
+#blogdesc::-webkit-scrollbar-track {
+  background: #191919;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+#blogdesc::-webkit-scrollbar-thumb {
+  background-color: var(--blue);
+  box-shadow: 0 0 50px 5px var(--blue2);
+  /* outline: 1px solid slategrey; */
 }
 #BlgGrid #Blg #my{
     background-color: var(--blue);

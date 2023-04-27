@@ -5,6 +5,7 @@ nav {
   background: #04224299;
   min-height: 60px;
   color: #eee;
+  position: fixed;
 }
 #logo,
 #togg {

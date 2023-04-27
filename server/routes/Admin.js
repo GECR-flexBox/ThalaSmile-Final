@@ -21,7 +21,11 @@ router.post("/createblog",async (req,res)=>{
 router.get("/getblog/:curlenth",async (req,res)=>{
     try {
         const {curlenth}=req.params;
-        const blogs = await blog.find().sort({updated_at:-1}).skip(curlenth).limit(4);
+        const blogs = await blog
+          .find()
+          .sort({ updated_at: -1 })
+          .skip(curlenth)
+          .limit(3);
         if(blogs.length==0){
             res.json({status:"end"});
         }else{

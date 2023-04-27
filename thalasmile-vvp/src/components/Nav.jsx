@@ -15,25 +15,75 @@ const Nav = () => {
     nav("/");
   }
   return (
-    <nav style={{position:'sticky',top:'0',zIndex:"50"}}>
+    <nav style={{ position: "fixed", top: "0", width: "100%", zIndex: "50" }}>
       <div id="logo">
         <abbr title="ThalaSmile">
           <PsychologyAltIcon />
         </abbr>
       </div>
       <div id="links">
-        <Link to="/" style={{display:`${location.pathname=="/"?"none":"unset"}`}}>Home</Link>
-        <a style={{display:`${location.pathname=="/"?"unset":"none"}`}} href="#hero">Home</a>
-        <a style={{display:`${location.pathname=="/"?"unset":"none"}`}} href="#intro">About</a>
+        <Link
+          to="/"
+          style={{ display: `${location.pathname == "/" ? "none" : "unset"}` }}
+        >
+          Home
+        </Link>
+        <a
+          style={{ display: `${location.pathname == "/" ? "unset" : "none"}` }}
+          href="#hero"
+        >
+          Home
+        </a>
+        <a
+          style={{ display: `${location.pathname == "/" ? "unset" : "none"}` }}
+          href="#intro"
+        >
+          About
+        </a>
         {islogin && <Link to="/comunity">Community</Link>}
-        <a style={{display:`${location.pathname=="/"?"unset":"none"}`}} href="#rev">Testimonials</a>
-        <a style={{display:`${location.pathname=="/"?"unset":"none"}`}} href="#BlgGrid">Blogs</a>
+        <a
+          style={{ display: `${location.pathname == "/" ? "unset" : "none"}` }}
+          href="#rev"
+        >
+          Testimonials
+        </a>
+        <a
+          style={{ display: `${location.pathname == "/" ? "unset" : "none"}` }}
+          href="#BlgGrid"
+        >
+          Blogs
+        </a>
         {islogin && <Link to="/resourses">Resource</Link>}
-        <a style={{display:`${location.pathname=="/resourses"?"unset":"none"}`}} href="#doctors">Doctors</a>
-        <a style={{display:`${location.pathname=="/resourses"?"unset":"none"}`}} href="#blood">Blood</a>
-        <a style={{display:`${location.pathname=="/resourses"?"unset":"none"}`}} href="#events">Events</a>
+        <a
+          style={{
+            display: `${location.pathname == "/resourses" ? "unset" : "none"}`,
+          }}
+          href="#doctors"
+        >
+          Doctors
+        </a>
+        <a
+          style={{
+            display: `${location.pathname == "/resourses" ? "unset" : "none"}`,
+          }}
+          href="#blood"
+        >
+          Blood
+        </a>
+        <a
+          style={{
+            display: `${location.pathname == "/resourses" ? "unset" : "none"}`,
+          }}
+          href="#events"
+        >
+          Events
+        </a>
         {!islogin && <Link to="/signin">SingIn</Link>}
-        {islogin && <button className="btn" onClick={logoutfun} style={{scale:".7",cursor:"pointer"}}>LogOut</button>}
+        {islogin && (
+          <a onClick={logoutfun} style={{ cursor: "pointer" }}>
+            Logout
+          </a>
+        )}
       </div>
       <div id="togg">
         <WidgetsIcon />
