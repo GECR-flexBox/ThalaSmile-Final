@@ -49,6 +49,10 @@ const Aside = () => {
               <FestivalIcon />
               Add Blood Camp
             </Link>
+            <Link className="links" to="/admin/add/blog">
+              <FestivalIcon />
+              Add Blog
+            </Link>
 
             <Link className="links" to="/admin/add/bookmark">
               <EventIcon /> Add Bookmark

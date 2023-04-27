@@ -151,7 +151,7 @@ const Charts = () => {
             </LineChart>
           </ResponsiveContainer>
         </div>
-        <div id="ch2">
+        <div id="ch2" style={{ width: "46%" }}>
           <h1>Area Chart</h1>
           <p>Chart Of Artist Wining Competition</p>
           <ResponsiveContainer width="100%" aspect={1.5}>

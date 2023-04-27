@@ -15,6 +15,7 @@ import Calendar from "../Admin/Calendar/Calendar";
 import Error404 from "../Fixed/Error404";
 import Welcome from "../Fixed/Welcome";
 import Camp from "./Camp";
+import Blog from "./Blog";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -81,6 +82,21 @@ function App() {
                   <Menu />
                   <div id="router">
                     <Contact />
+                  </div>
+                  <Footer />
+                </main>
+              </div>
+            }
+          />
+          <Route
+            path="/admin/add/blog"
+            element={
+              <div className="App">
+                <Aside />
+                <main>
+                  <Menu />
+                  <div id="router">
+                    <Blog />
                   </div>
                   <Footer />
                 </main>
