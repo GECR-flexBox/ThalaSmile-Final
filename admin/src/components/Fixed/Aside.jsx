@@ -54,9 +54,9 @@ const Aside = () => {
               Add Blog
             </Link>
 
-            <Link className="links" to="/admin/add/bookmark">
+            {/* <Link className="links" to="/admin/add/bookmark">
               <EventIcon /> Add Bookmark
-            </Link>
+            </Link> */}
           </div>
 
           <div className="g-5">

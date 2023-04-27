@@ -10,7 +10,6 @@ import io from "socket.io-client";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Resources from "./pages/Resources";
-
 const backend = "http://localhost:3001";
 const socket = io.connect(backend);
 
@@ -21,7 +20,7 @@ const App = () => {
   const [user,setUser]=useState({_id:userId,name:"viren"});
   const [cid,setCid]=useState(null);
   const [refresh,setRefresh]=useState(true);
-  const [islogin,setIslogin]=useState(false);
+  const [islogin,setIslogin]=useState(true);
   return (
     <MyContext.Provider value={{ islogin,setIslogin,
       refresh,setRefresh,socket, userId,user,setUser,cid,setCid,socket,backend}}>
@@ -31,9 +30,9 @@ const App = () => {
         <Route path="/" element={<Home/>}/>
         <Route path="/comunity" element={<Comunity/>}/>
         <Route path="/chat" element={<Chat/>}/>
+        <Route path="/resourses" element={<Resources/>}/>
         <Route path="/signin" element={<Login/>}/>
         <Route path="/signup" element={<Signup/>}/>
-        <Route path="/resource" element={<Resources/>}/>
       </Routes>
     </BrowserRouter>
     </MyContext.Provider>
